@@ -51,3 +51,49 @@ public:
 
 //_______________________________________________________________________________________________________________//
 //_______________________________________________________________________________________________________________//
+
+// DATE : 01/01/2023
+
+// TASK 1 :  Number of Good Pairs
+
+// url :https://leetcode.com/problems/number-of-good-pairs/
+
+// Time complexity : O(n) ; Space complexity : O(1)
+
+class Solution {
+public:
+    int numIdenticalPairs(vector<int>& nums) {
+        vector<int> result(101);
+        int count=0;
+        for(int x=0;x<nums.size();x++){
+            result[nums[x]]++;
+        }
+        for(int x=0;x<result.size();x++){
+            count+=(result[x]*(result[x]-1))/2;
+        }
+        return count;
+    }
+};
+
+//---------------------------------------------------------------------------------------------------------------//
+
+// TASK 1 :  Union of two arrays
+
+// url :https://www.geeksforgeeks.org/problems/union-of-two-arrays3538/1
+
+// Time complexity : O(n) ; Space complexity : O(1)
+
+class Solution{
+    public:
+    //Function to return the count of number of elements in union of two arrays.
+    int doUnion(int a[], int n, int b[], int m)  {
+        //code here
+        unordered_set<int> hash;
+        for(int x=0;x<n;x++)hash.insert(a[x]);
+        for(auto x=0;x<m;x++)hash.insert(b[x]);
+        return hash.size();
+    }
+};
+
+//_______________________________________________________________________________________________________________//
+//_______________________________________________________________________________________________________________//
