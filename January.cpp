@@ -209,3 +209,68 @@ public:
     }
 };
 
+
+
+//_______________________________________________________________________________________________________________//
+//___________________________________________05/01/2023__________________________________________________________//
+
+// DATE : 05/01/2023
+
+// TASK 1 :  Love Story
+
+// url : https://codeforces.com/contest/1829/problem/A
+
+// Time complexity : O(1) ; Space complexity : O(1)
+
+#include<iostream>
+using namespace std;
+ 
+int main()
+{
+ 
+    int t;
+    cin>>t;
+    while(t--){
+        string n;
+        cin>>n;
+        string s="codeforces";
+        int count=0;
+        for(int x=0;x<10;x++){
+            if(s[x]!=n[x])count++;
+        }
+        cout<<count<<endl;
+    }
+ 
+return 0;
+}
+
+//---------------------------------------------------------------------------------------------------------------//
+
+// TASK 2 :  Valid Anagram
+
+// url : https://leetcode.com/problems/valid-anagram/description/
+
+// Time complexity : O(n) ; Space complexity : O(1)
+
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        int snum[130]={0};
+        for(int x=0;x<s.size();x++){
+            snum[s[x]]++;
+        }
+
+        for(int x=0;x<t.size();x++){
+            snum[t[x]]--;
+        }
+
+        for(int x=97;x<123;x++){
+            if(snum[x]!=0){
+                return false;
+            }
+        }
+        return true;
+    }
+};
+
+
