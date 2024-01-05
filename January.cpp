@@ -152,3 +152,60 @@ public:
 };
 
 
+
+//_______________________________________________________________________________________________________________//
+//___________________________________________04/01/2023__________________________________________________________//
+
+// DATE : 04/01/2023
+
+// TASK 1 :  Longest Common Prefix
+
+// url : https://leetcode.com/problems/longest-common-prefix/description/
+
+// Time complexity : O(n*m) ; Space complexity : O(1)
+
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+        string nstr="";
+        bool match=true;
+        int a=0;
+        while(match==true){
+             for(int t=0;t<strs.size();t++){
+                 if(a==strs[t].size()){
+                     match =false;
+                     break;
+                 }
+                if(strs[t][a]!=strs[0][a]){
+                    match=false;
+                    break;
+                }
+        }
+         if(match){
+            nstr+=strs[0][a];
+            a++;
+        }else break;
+        }
+        return nstr;
+       
+    }
+};
+
+//---------------------------------------------------------------------------------------------------------------//
+
+// TASK 2 :  Rotate String
+
+// url : https://leetcode.com/problems/rotate-string/description/
+
+// Time complexity : O(n*m) ; Space complexity : O(1)
+
+class Solution {
+public:
+    bool rotateString(string s, string goal) {
+        if(s.size()!=goal.size())return false;
+        s=s+s;
+        if(s.find(goal)<s.size())return true;
+        return false;
+    }
+};
+
