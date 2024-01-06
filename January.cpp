@@ -274,3 +274,68 @@ public:
 };
 
 
+
+//_______________________________________________________________________________________________________________//
+//___________________________________________06/01/2023__________________________________________________________//
+
+// DATE : 06/01/2023
+
+// TASK 1 :  New Palindrome
+
+// url : https://codeforces.com/problemset/problem/1832/A
+
+// Time complexity : O(n) ; Space complexity : O(1)
+
+#include<bits/stdc++.h>
+using namespace std;
+ 
+int main()
+{
+ 
+    int t;
+    cin>>t;
+    while(t--){
+        string n;
+        cin>>n;
+        vector<int> hash(26,0);
+        for(auto x:n){
+            hash[x-97]++;
+        }
+        int count=0;
+        for(auto x:hash){
+            if(x>1)count++;
+        }
+        if(count>1)cout<<"YES"<<endl;
+        else cout<<"NO"<<endl;
+    }
+ 
+return 0;
+}
+
+//---------------------------------------------------------------------------------------------------------------//
+
+// TASK 2 :  Jump Game II
+
+// url : https://leetcode.com/problems/jump-game-ii/description/
+
+// Time complexity : O(n^2) ; Space complexity : O(1)
+
+class Solution {
+public:
+    int jump(vector<int>& nums) {
+        int n=nums.size();
+        vector<int> hash(n,INT_MAX);
+        hash[n-1]=0;
+        for(int x=n-2;x>=0;x--){
+            int y=1;
+            while(y<=nums[x] && x+y<n){
+                hash[x]=min(hash[x],1+hash[x+y]);
+                y++;
+            }
+            if(hash[x]==INT_MAX)hash[x]--;
+        }
+        return hash[0];
+    }
+};
+
+
