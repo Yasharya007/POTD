@@ -339,3 +339,68 @@ public:
 };
 
 
+
+//_______________________________________________________________________________________________________________//
+//___________________________________________07/01/2023__________________________________________________________//
+
+// DATE : 07/01/2023
+
+// TASK 1 :  Remove Outermost Parentheses
+
+// url : https://leetcode.com/problems/remove-outermost-parentheses/description/
+
+// Time complexity : O(n) ; Space complexity : O(n)
+
+class Solution {
+public:
+    string removeOuterParentheses(string s) {
+        stack<int> store;
+        string result="";
+        for(int x:s){
+            if(x=='('){
+                if(store.size()>0){
+                    result+='(';
+                }
+                store.push('(');
+            }else{
+                if(store.size()>1){
+                    result+=')';
+                }
+                store.pop();
+            }
+        }
+        return result;
+    }
+};
+
+//---------------------------------------------------------------------------------------------------------------//
+
+// TASK 2 :  Short Sort
+
+// url : https://codeforces.com/contest/1873/problem/A
+
+// Time complexity : O(1) ; Space complexity : O(1)
+
+#include<bits/stdc++.h>
+using namespace std;
+ 
+int main()
+{
+ 
+    int t;
+    cin>>t;
+    while(t--){
+        string n;
+        cin>>n;
+        int cnt=0;
+        if(n[0]!='a')cnt++;
+        if(n[1]!='b')cnt++;
+        if(n[2]!='c')cnt++;
+        if(cnt==2 || cnt==0)cout<<"YES"<<endl;
+        else cout<<"NO"<<endl;
+    }
+ 
+return 0;
+}
+
+
