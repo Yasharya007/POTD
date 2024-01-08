@@ -404,3 +404,73 @@ return 0;
 }
 
 
+
+//_______________________________________________________________________________________________________________//
+//___________________________________________08/01/2023__________________________________________________________//
+
+// DATE : 08/01/2023
+
+// TASK 1 :  Digit Minimization
+
+// url : https://codeforces.com/problemset/problem/1684/A
+
+// Time complexity : O(n) ; Space complexity : O(1)
+
+#include<bits/stdc++.h>
+using namespace std;
+ 
+int main()
+{
+ 
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        if(n<100){
+            cout<<n%10<<endl;
+        }else{
+            int mini=n%10;
+            while(n!=0){
+                int a=n%10;
+                mini=mini<a?mini:a;
+                n/=10;
+            }
+            cout<<mini<<endl;
+        }
+    }
+ 
+return 0;
+}
+
+//---------------------------------------------------------------------------------------------------------------//
+
+// TASK 2 :  Minimum Time to Make Rope Colorful
+
+// url : https://leetcode.com/problems/minimum-time-to-make-rope-colorful/description/
+
+// Time complexity : O(n) ; Space complexity : O(1)
+
+class Solution {
+public:
+    int minCost(string& colors, vector<int>& neededTime) {
+        int cost=0;
+        int sum=0;
+        char col=colors[0];
+        int mini=neededTime[0];
+        for(int x=0;x<colors.length();x++){
+            if(colors[x]==col){
+                mini=max(mini,neededTime[x]);
+                sum+=neededTime[x];
+            }else{
+                cost+=sum-mini;
+                sum=neededTime[x];
+                col=colors[x];
+                mini=sum;
+            }
+        }
+        cost+=sum-mini;
+        return cost;
+    }
+};
+
